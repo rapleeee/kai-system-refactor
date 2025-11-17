@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KAI Sarana Lifecycle Command Center
 
-## Getting Started
+Dashboard dummy untuk Divisi Sarana KAI yang memantau umur aset campuran (lokomotif, rangkaian, KRL, gerbong, dll.) dan menggabungkan perspektif akuntansi dengan kondisi teknis. Aplikasi ini hanya menampilkan data statis/dummy untuk eksplorasi desain.
 
-First, run the development server:
+## Fitur Utama
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Sidebar kategori**: Menu utama, management, dan setting dengan navigasi sticky + scroll internal.
+- **Kartu ringkasan lifecycle**: Total portfolio, jumlah yang perlu diremajakan, wajib ganti, dan estimasi nilai ekonomi.
+- **Distribusi umur**: Bar progress menampilkan konsentrasi usia aset.
+- **Simulasi Capex**: Grafik ringan (SVG) dengan highlight tiap periode.
+- **Tabel prioritas sarana**: Badge status kesehatan, rekomendasi tindakan, serta estimasi biaya dalam format singkat (Rp xx M).
+- **Opportunity & Insight**: Progress availability, ide proyek, dan insight finansial.
+- **Notifikasi**: Daftar sinyal reminder dengan badge warna.
+
+## Teknologi
+
+- [Next.js 16 (App Router)](https://nextjs.org/)
+- React 19
+- Tailwind CSS v4 (PostCSS plugin)
+- Font Geist
+- Komponen utilitas ala Shadcn (Card, Badge, Progress, Sidebar custom)
+
+## Struktur Proyek Singkat
+
+```
+app/
+  layout.tsx        -> konfigurasi font dan metadata
+  page.tsx          -> halaman dashboard (dummy data + UI)
+  globals.css       -> tema global (putih elegan)
+components/ui/
+  card.tsx
+  badge.tsx
+  progress.tsx
+  sidebar.tsx
+lib/
+  utils.ts          -> helper className (cn)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Menjalankan Secara Lokal
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Pasang dependensi (jika belum):
+   ```bash
+   npm install
+   ```
+2. Jalankan dev server:
+   ```bash
+   npm run dev
+   ```
+3. Buka [http://localhost:3000](http://localhost:3000) untuk melihat dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Catatan
 
-## Learn More
+- Semua angka/aset adalah dummy dan tidak mewakili data resmi KAI.
+- Fokus utama proyek ini adalah eksplorasi tata letak UI white-style yang clean + elegan.
 
-To learn more about Next.js, take a look at the following resources:
+## Skrip NPM
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` – menjalankan server pengembangan
+- `npm run build` – build production
+- `npm run start` – menjalankan hasil build
+- `npm run lint` – menjalankan ESLint (dengan @next/eslint-plugin)
