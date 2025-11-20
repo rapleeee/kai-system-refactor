@@ -1,3 +1,7 @@
+"use client";
+
+import React from "react";
+
 import { Badge, type BadgeVariant } from "@/components/ui/badge";
 import {
   Card,
@@ -16,6 +20,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Menu } from "lucide-react";
 
 interface Asset {
   id: string;
@@ -35,94 +40,94 @@ interface Asset {
 
 const fleetAssets: Asset[] = [
   {
-    id: "CC206-01",
-    name: "Lokomotif CC206-01",
+    id: "CC2019216",
+    name: "CC2019216, Lokomotif",
     type: "Lokomotif",
-    depot: "Balai Yasa Manggarai",
-    ageYears: 32,
+    depot: "Lokomotif",
+    ageYears: 39,
     economicLife: 30,
     canBeRejuvenated: false,
     healthStatus: "critical",
-    nextAction: "Ganti Unit Baru",
-    lastMaintenance: "2023-11-18",
-    costProjection: 48,
-    availability: 0.71,
-    notes: "Sudah melewati jam operasi maksimum + retakan bogie.",
+    nextAction: "Penggantian Unit Baru",
+    lastMaintenance: "2024-05-12",
+    costProjection: 23,
+    availability: 0.63,
+    notes: "Melebihi umur ekonomis, bogie dan mesin utama riskan.",
   },
   {
-    id: "ARGO-01",
-    name: "Rangkaian Eksekutif Argo Bromo",
-    type: "Kereta Penumpang",
-    depot: "Balai Yasa Madiun",
-    ageYears: 28,
+    id: "CC2019217",
+    name: "CC2019217, Lokomotif",
+    type: "Lokomotif",
+    depot: "Lokomotif",
+    ageYears: 39,
     economicLife: 30,
     canBeRejuvenated: true,
-    healthStatus: "warning",
-    nextAction: "Peremajaan Interior & HVAC",
-    lastMaintenance: "2024-04-10",
-    costProjection: 22,
-    availability: 0.86,
-    notes: "Interior mulai menurun, potensi upgrade menjaga nilai jual.",
+    healthStatus: "critical",
+    nextAction: "Repowering",
+    lastMaintenance: "2024-04-28",
+    costProjection: 15,
+    availability: 0.66,
+    notes: "Perlu repowering untuk menjaga keandalan traksi.",
   },
   {
-    id: "JR205-12",
-    name: "KRL JR 205 Set 12",
+    id: "K319603",
+    name: "K319603, KRL",
     type: "KRL",
     depot: "Depo Bukit Duri",
-    ageYears: 26,
-    economicLife: 25,
+    ageYears: 40,
+    economicLife: 30,
     canBeRejuvenated: true,
-    healthStatus: "warning",
-    nextAction: "Peremajaan Sistem Propulsi",
-    lastMaintenance: "2024-02-22",
-    costProjection: 18,
-    availability: 0.78,
-    notes: "Efisiensi energi turun 7%, butuh retrofit inverter.",
+    healthStatus: "critical",
+    nextAction: "Retrofit",
+    lastMaintenance: "2024-02-18",
+    costProjection: 5,
+    availability: 0.72,
+    notes: "Butuh retrofit sistem propulsi dan HVAC.",
   },
   {
-    id: "G90-44",
-    name: "Gerbong Barang G-90",
+    id: "K102325",
+    name: "K102325, KA New Generation",
+    type: "Kereta Penumpang",
+    depot: "Balai Yasa Surabaya",
+    ageYears: 2,
+    economicLife: 30,
+    canBeRejuvenated: true,
+    healthStatus: "stabil",
+    nextAction: "Perawatan Rutin",
+    lastMaintenance: "2024-05-30",
+    costProjection: 2,
+    availability: 0.97,
+    notes: "Performa stabil, lanjutkan perawatan terjadwal.",
+  },
+  {
+    id: "GB258323",
+    name: "GB258323, Gerbong",
     type: "Gerbong Barang",
     depot: "Balai Yasa Tegal",
     ageYears: 34,
-    economicLife: 28,
+    economicLife: 30,
     canBeRejuvenated: false,
     healthStatus: "critical",
-    nextAction: "Penggantian Total",
-    lastMaintenance: "2022-09-14",
-    costProjection: 12,
-    availability: 0.58,
+    nextAction: "Penggantian Unit Baru",
+    lastMaintenance: "2023-12-10",
+    costProjection: 18,
+    availability: 0.54,
     notes: "Struktur utama korosi berat, tidak ekonomis diremajakan.",
   },
   {
-    id: "KRD-07",
-    name: "KRD Lintas Bandung",
-    type: "KRD",
-    depot: "Dipo Bandung",
-    ageYears: 18,
-    economicLife: 25,
-    canBeRejuvenated: true,
-    healthStatus: "improving",
-    nextAction: "Peremajaan Sistem Kelistrikan",
-    lastMaintenance: "2024-05-02",
-    costProjection: 9,
-    availability: 0.91,
-    notes: "Program rewire bertahap meningkatkan keandalan 4%.",
-  },
-  {
-    id: "STAIN-02",
-    name: "Kereta Tidur Stainless",
+    id: "K100802",
+    name: "K100802, Kereta Penumpang",
     type: "Kereta Penumpang",
-    depot: "Balai Yasa Surabaya",
-    ageYears: 12,
-    economicLife: 35,
+    depot: "Depo Bukit Duri",
+    ageYears: 16,
+    economicLife: 30,
     canBeRejuvenated: true,
-    healthStatus: "stabil",
-    nextAction: "Optimasi Interval",
-    lastMaintenance: "2024-01-16",
-    costProjection: 6,
-    availability: 0.95,
-    notes: "Masih prima, cukup optimasi jadwal inspeksi.",
+    healthStatus: "warning",
+    nextAction: "Midlife Overhaul",
+    lastMaintenance: "2024-03-22",
+    costProjection: 10,
+    availability: 0.81,
+    notes: "Perlu monitor rangka dan interior, jadwalkan midlife overhaul.",
   },
 ];
 
@@ -193,36 +198,42 @@ const summary = {
 };
 
 const ageGroups = [
-  { label: "< 15 th", min: 0, max: 15 },
-  { label: "15 - 25 th", min: 15, max: 25 },
-  { label: "25 - 30 th", min: 25, max: 30 },
-  { label: "> 30 th", min: 30, max: 100 },
-].map((group) => ({
-  ...group,
-  count: fleetAssets.filter((asset) => asset.ageYears >= group.min && asset.ageYears < group.max).length,
-}));
+  { label: "1 - 15 Tahun", count: 3248 },
+  { label: "16 - 25 Tahun", count: 1886 },
+  { label: "25 - 30 Tahun", count: 5013 },
+  { label: "> 30 Tahun", count: 3432 },
+];
 
 const highestAgeGroup = Math.max(...ageGroups.map((group) => group.count), 1);
 
-const notifications = fleetAssets
-  .filter((asset) => asset.ageYears >= asset.economicLife - 1)
-  .map((asset) => {
-    const severity: BadgeVariant = asset.healthStatus === "critical" ? "critical" : asset.canBeRejuvenated ? "warning" : "muted";
-    return {
-      id: asset.id,
-      asset: asset.name,
-      depot: asset.depot,
-      action: asset.nextAction,
-      severity,
-      due: severity === "critical" ? "Segera" : asset.canBeRejuvenated ? "14 hari" : "30 hari",
-      notes: asset.notes,
-    };
-  });
-
-const opportunityIdeas = [
-  { label: "Retrofit propulsi KRL JR 205", impact: "+12% efisiensi" },
-  { label: "Rebody gerbong G-90 tahap 2", impact: "Hemat Rp18M" },
-  { label: "Optimasi jadwal inspeksi stainless", impact: "Potensi -8% biaya" },
+const notifications = [
+  {
+    id: "CC2019216",
+    asset: "CC2019216, Lokomotif",
+    depot: "Lokomotif",
+    action: "Penggantian Unit Baru",
+    severity: "critical" as BadgeVariant,
+    due: "Segera",
+    notes: "Melebihi umur ekonomis, bogie dan mesin utama riskan.",
+  },
+  {
+    id: "K319603",
+    asset: "K319603",
+    depot: "Kereta Commuter Indonesia",
+    action: "P48",
+    severity: "warning" as BadgeVariant,
+    due: "14 hari",
+    notes: "Perlu dilakukan perawatan sebelum terjadi gangguan",
+  },
+  {
+    id: "GB306520",
+    asset: "GB 306520",
+    depot: "Balai Yasa Tegal",
+    action: "Tidak Laik Operasi",
+    severity: "critical" as BadgeVariant,
+    due: "Segera",
+    notes: "Perlu dilakukan Joint Inspection bersama",
+  },
 ];
 
 const capexMaxValue = Math.max(...capexPlan.map((item) => item.value));
@@ -235,10 +246,27 @@ const capexPolyline = capexPlan
   .join(" ");
 
 export default function Home() {
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+
   return (
-    <div className="min-h-screen bg-[var(--background)] px-4 py-8 text-slate-900 sm:px-6 lg:px-10">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-white px-4 py-8 text-slate-900 sm:px-6 lg:px-10">
+      {isSidebarOpen ? (
+        <button
+          type="button"
+          aria-label="Tutup menu"
+          onClick={() => setIsSidebarOpen(false)}
+          className="fixed inset-0 z-30 bg-slate-900/30 backdrop-blur-sm lg:hidden"
+        />
+      ) : null}
+
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 lg:flex-row">
-        <Sidebar className="self-start px-0 lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:w-64">
+        <Sidebar
+          className={`self-start transition-transform duration-300 lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:w-64 lg:translate-x-0 lg:bg-transparent lg:p-0 lg:shadow-none ${
+            isSidebarOpen
+              ? "fixed left-0 top-0 z-40 h-full w-[78%] max-w-xs translate-x-0 overflow-y-auto rounded-r-3xl bg-white/95 p-6 shadow-2xl backdrop-blur"
+              : "fixed left-0 top-0 z-40 h-full w-[78%] max-w-xs -translate-x-[105%] overflow-y-auto rounded-r-3xl bg-white/95 p-6 shadow-2xl backdrop-blur"
+          }`}
+        >
           <SidebarHeader>
             <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-slate-400">Divisi Sarana</p>
             <p className="text-lg font-semibold">Command Hub</p>
@@ -264,7 +292,7 @@ export default function Home() {
             </div>
           </SidebarContent>
           <SidebarFooter>
-            <p>Akhmad Ramadhan · Chief Rolling Stock</p>
+            <p>Ilham Prawoto · Chief Rolling Stock</p>
             <button type="button" className="mt-2 text-xs font-semibold text-slate-600 hover:text-slate-900">
               Logout
             </button>
@@ -272,20 +300,31 @@ export default function Home() {
         </Sidebar>
 
         <main className="flex-1 space-y-6">
-          <section className="rounded-3xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+          <div className="flex items-center justify-between lg:hidden">
+            <button
+              type="button"
+              onClick={() => setIsSidebarOpen(true)}
+              className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow focus:outline-none focus:ring-2 focus:ring-slate-300"
+            >
+              <Menu className="h-4 w-4" />
+              Menu
+            </button>
+          </div>
+
+          <section className="rounded-3xl border-none bg-white/95 p-6 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-xs uppercase tracking-[0.4em] text-slate-400">Lifecycle Dashboard</p>
-                <h1 className="text-3xl font-semibold text-slate-900">KAI Sarana Lifecycle Command Center</h1>
+                <h1 className="text-3xl font-semibold text-slate-900">Asset Lifecycle Management</h1>
                 <p className="text-sm text-slate-500">
-                  Klasifikasi umur sarana, rekomendasi peremajaan, dan indikasi penggantian unit.
+                  Klasifikasi Sarana berdasarkan Asset Health Index, Umur Sarana, Rekomendasi Peremajaan atau Penggantian Unit
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <button className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 transition hover:border-slate-300">
+              <div className="flex gap-3 flex-col">
+                <button className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 transition hover:border-slate-600 cursor-pointer ">
                   Share Snapshot
                 </button>
-                <button className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white shadow-sm">
+                <button className="rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white shadow-sm cursor-pointer hover:bg-slate-800">
                   Tambah Rencana
                 </button>
               </div>
@@ -293,59 +332,59 @@ export default function Home() {
           </section>
 
           <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader className="space-y-1.5">
-                <CardTitle>Portfolio Sarana</CardTitle>
-                <CardDescription>Unit aktif yang termonitor</CardDescription>
+                <CardTitle>Total Sarana</CardTitle>
+                <CardDescription>Sarana yang termonitor</CardDescription>
               </CardHeader>
               <CardContent className="space-y-1">
-                <p className="text-3xl font-semibold text-slate-900 sm:text-4xl">{summary.totalAssets} unit</p>
-                <p className="text-xs uppercase tracking-wide text-slate-400">Campuran Loco / KRL / Kereta</p>
+                <p className="text-3xl font-semibold text-slate-900 sm:text-4xl">13.566 Unit</p>
+                <p className="text-xs uppercase tracking-wide text-slate-400">Lokomotif, Kereta dan Gerbong</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader className="space-y-1.5">
-                <CardTitle>Perlu Remajakan</CardTitle>
-                <CardDescription>80% mendekati batas ekonomis</CardDescription>
+                <CardTitle>Perlu Peremajaan</CardTitle>
+                <CardDescription>50% mendekati masa pakai</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <p className="text-3xl font-semibold text-slate-900 sm:text-4xl">{summary.rejuvenationNeeded}</p>
-                <p className="text-xs text-slate-500">Fokus prioritas remajakan progresif.</p>
+                <p className="text-3xl font-semibold text-slate-900 sm:text-4xl">500 Unit</p>
+                <p className="text-xs text-slate-500">Modifikasi, Repowering, Retrofit, Renewal</p>
                 <Badge variant="warning" className="w-fit">
                   Batas 30 hari
                 </Badge>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader className="space-y-1.5">
-                <CardTitle>Wajib Ganti</CardTitle>
-                <CardDescription>Melampaui umur ekonomis</CardDescription>
+                <CardTitle>Penggantian (Replacement)</CardTitle>
+                <CardDescription>Tidak laik operasi</CardDescription>
               </CardHeader>
               <CardContent className="space-y-2">
-                <p className="text-3xl font-semibold text-slate-900 sm:text-4xl">{summary.replacementNeeded}</p>
-                <p className="text-xs text-slate-500">Realokasi unit ke program capex.</p>
+                <p className="text-3xl font-semibold text-slate-900 sm:text-4xl">200 Unit</p>
+                <p className="text-xs text-slate-500">Investasi melalui pengeluaran Capex</p>
                 <Badge variant="critical" className="w-fit">
                   Segera realokasi
                 </Badge>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader className="space-y-1.5">
-                <CardTitle>Nilai Ekonomi Terjaga</CardTitle>
-                <CardDescription>Potensi biaya jika diremajakan</CardDescription>
+                <CardTitle>Cost Benefit</CardTitle>
+                <CardDescription>Potensi penghematan</CardDescription>
               </CardHeader>
               <CardContent className="space-y-1">
-                <p className="text-3xl font-semibold text-slate-900">{formatBillion(summary.protectedValue)}</p>
-                <p className="text-xs text-slate-500">Estimasi penghematan terhadap penggantian unit.</p>
+                <p className="text-3xl font-semibold text-slate-900">Rp 100 Miliar</p>
+                <p className="text-xs text-slate-500">Berdasarkan kalkulasi dan eskalasi</p>
               </CardContent>
             </Card>
           </section>
 
           <section className="grid gap-4 lg:grid-cols-3">
-            <Card className="lg:col-span-2">
+            <Card className="lg:col-span-2 rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader>
-                <CardTitle>Distribusi Umur Sarana</CardTitle>
-                <CardDescription>Menunjukkan konsentrasi umur aset campuran</CardDescription>
+                <CardTitle>Sebaran Sarana berdasarkan Umur</CardTitle>
+                <CardDescription>Lokomotif, Kereta, dan Gerbong</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 {ageGroups.map((group) => (
@@ -362,19 +401,21 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
-                <p className="text-xs text-slate-500">Dominasi aset di atas 25 tahun perlu strategi remajakan terintegrasi.</p>
+                <p className="text-xs text-slate-500">
+                  Diperlukan strategi peremajaan atau penggantian terhadap aset-aset sarana yang mendekati umur ekonomisnya
+                </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader>
-                <CardTitle>Rencana Capex 2024</CardTitle>
-                <CardDescription>Simulasi realokasi biaya peremajaan</CardDescription>
+                <CardTitle>Estimasi Capex</CardTitle>
+                <CardDescription>simulasi biaya perawatan atau penggantian</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-baseline justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-wide text-slate-500">Total dialokasikan</p>
-                    <p className="text-2xl font-semibold text-slate-900">{formatBillion(520)}</p>
+                    <p className="text-2xl font-semibold text-slate-900">Rp 512 Miliar</p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs uppercase tracking-wide text-slate-500">Efisiensi</p>
@@ -409,8 +450,8 @@ export default function Home() {
             </Card>
           </section>
 
-          <section className="grid gap-4 lg:grid-cols-3">
-            <Card className="lg:col-span-2">
+          <section className="">
+            <Card className="lg:col-span-2 rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader>
                 <CardTitle>Prioritas Sarana</CardTitle>
                 <CardDescription>Urutan prioritas remajakan vs ganti unit</CardDescription>
@@ -458,33 +499,11 @@ export default function Home() {
                 </table>
               </CardContent>
             </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Opportunity Score</CardTitle>
-                <CardDescription>Prioritas inisiatif nilai ekonomi</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="text-5xl font-semibold text-slate-900">88</p>
-                  <p className="text-xs uppercase tracking-wide text-slate-500">
-                    {summary.availability}% availability rata-rata
-                  </p>
-                </div>
-                <Progress value={88} />
-                <div className="space-y-3">
-                  {opportunityIdeas.map((idea) => (
-                    <div key={idea.label} className="rounded-2xl border border-slate-100 bg-slate-50 p-3">
-                      <p className="text-sm font-semibold text-slate-900">{idea.label}</p>
-                      <p className="text-xs text-emerald-600">{idea.impact}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            
           </section>
 
           <section className="grid gap-4 lg:grid-cols-2">
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader>
                 <CardTitle>Notifikasi Lifecycle</CardTitle>
                 <CardDescription>Sinyal peremajaan & penggantian unit</CardDescription>
@@ -505,36 +524,22 @@ export default function Home() {
                 ))}
               </CardContent>
             </Card>
-            <Card>
+            <Card className="rounded-3xl border-none bg-white/95 shadow-[0_15px_45px_rgba(15,23,42,0.08)] backdrop-blur">
               <CardHeader>
-                <CardTitle>Insight Ekonomi</CardTitle>
-                <CardDescription>Pemetaan cepat dampak biaya</CardDescription>
+                <CardTitle>Pekerjaan terbaru</CardTitle>
+                <CardDescription>Balai Yasa dan Depo</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="rounded-2xl border border-blue-100 bg-blue-50 p-4">
-                  <p className="text-xs uppercase tracking-wide text-slate-500">Potensi penghematan</p>
-                  <p className="text-3xl font-semibold text-slate-900">{formatBillion(summary.protectedValue * 0.42)}</p>
-                  <p className="text-xs text-blue-600">42% biaya dapat diremajakan ulang dibanding penggantian.</p>
+                <div>
+                  <p className="text-5xl font-semibold text-slate-900">300 Perawatan</p>
+                  <p className="text-xs uppercase tracking-wide text-slate-500">total realisasi 80%</p>
                 </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-slate-100 p-3">
-                    <p className="text-xs uppercase tracking-wide text-slate-500">Sarana di atas 30 th</p>
-                    <p className="text-2xl font-semibold text-slate-900">
-                      {fleetAssets.filter((asset) => asset.ageYears >= 30).length}
-                    </p>
-                    <p className="text-xs text-slate-500">Perlu keputusan ganti unit</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-100 p-3">
-                    <p className="text-xs uppercase tracking-wide text-slate-500">Proyek siap tender</p>
-                    <p className="text-2xl font-semibold text-slate-900">3</p>
-                    <p className="text-xs text-slate-500">Retrofit KRL, rebody gerbong, interior eksekutif</p>
-                  </div>
-                </div>
-                <div className="rounded-2xl border border-slate-100 p-4">
-                  <p className="text-xs uppercase tracking-wide text-slate-500">Catatan keuangan</p>
-                  <p className="text-sm text-slate-700">
-                    Kombinasi remajakan + ganti unit menjaga utilisasi di {summary.availability}% dan menahan kebocoran biaya capex sampai Rp 210 Miliar.
-                  </p>
+                <div className="space-y-2">
+                  {["P1 CC2019216", "P3 CC2019216", "P24 CC2019216", "P48 CC2019216"].map((task) => (
+                    <div key={task} className="rounded-2xl border border-slate-100 bg-slate-50 p-3">
+                      <p className="text-sm font-semibold text-slate-900">{task}</p>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
