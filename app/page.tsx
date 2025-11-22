@@ -41,7 +41,7 @@ interface Asset {
 const fleetAssets: Asset[] = [
   {
     id: "CC2019216",
-    name: "CC2019216, Lokomotif",
+    name: "CC2019216",
     type: "Lokomotif",
     depot: "Lokomotif",
     ageYears: 39,
@@ -56,7 +56,7 @@ const fleetAssets: Asset[] = [
   },
   {
     id: "CC2019217",
-    name: "CC2019217, Lokomotif",
+    name: "CC2019217",
     type: "Lokomotif",
     depot: "Lokomotif",
     ageYears: 39,
@@ -71,7 +71,7 @@ const fleetAssets: Asset[] = [
   },
   {
     id: "K319603",
-    name: "K319603, KRL",
+    name: "K319603",
     type: "KRL",
     depot: "Depo Bukit Duri",
     ageYears: 40,
@@ -86,7 +86,7 @@ const fleetAssets: Asset[] = [
   },
   {
     id: "K102325",
-    name: "K102325, KA New Generation",
+    name: "K102325",
     type: "Kereta Penumpang",
     depot: "Balai Yasa Surabaya",
     ageYears: 2,
@@ -101,7 +101,7 @@ const fleetAssets: Asset[] = [
   },
   {
     id: "GB258323",
-    name: "GB258323, Gerbong",
+    name: "GB258323",
     type: "Gerbong Barang",
     depot: "Balai Yasa Tegal",
     ageYears: 34,
@@ -116,7 +116,7 @@ const fleetAssets: Asset[] = [
   },
   {
     id: "K100802",
-    name: "K100802, Kereta Penumpang",
+    name: "K100802",
     type: "Kereta Penumpang",
     depot: "Depo Bukit Duri",
     ageYears: 16,
@@ -249,7 +249,7 @@ export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/40 to-white px-4 py-8 text-slate-900 sm:px-6 lg:px-10">
+    <div className="relative min-h-screen bg-linear-to-br from-slate-50 via-indigo-50/40 to-white px-4 py-8 text-slate-900 sm:px-6 lg:px-10">
       {isSidebarOpen ? (
         <button
           type="button"
@@ -292,7 +292,7 @@ export default function Home() {
             </div>
           </SidebarContent>
           <SidebarFooter>
-            <p>Ilham Prawoto · Chief Rolling Stock</p>
+            <p>Ilham Prawoto · Staff Rolling Stock</p>
             <button type="button" className="mt-2 text-xs font-semibold text-slate-600 hover:text-slate-900">
               Logout
             </button>
@@ -395,7 +395,7 @@ export default function Home() {
                     </div>
                     <div className="h-3 w-full rounded-full bg-slate-100">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-slate-900 via-blue-500 to-sky-400"
+                        className="h-full rounded-full bg-linear-to-r from-slate-900 via-blue-500 to-sky-400"
                         style={{ width: `${(group.count / highestAgeGroup) * 100}%` }}
                       />
                     </div>
