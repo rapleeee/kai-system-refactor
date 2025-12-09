@@ -292,7 +292,7 @@ export default function Home() {
             </div>
           </SidebarContent>
           <SidebarFooter>
-            <p>Ilham Prawoto · Staff Rolling Stock</p>
+            <p>M. Ilham Ramadhani Prawoto - Pelaksana Management Trainee Program</p>
             <button type="button" className="mt-2 text-xs font-semibold text-slate-600 hover:text-slate-900">
               Logout
             </button>
